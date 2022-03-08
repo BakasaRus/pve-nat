@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-iptables -F PREROUTING
-iptables -F POSTROUTING
+iptables -t nat -F
 iptables -F INPUT
 
 source venv/bin/activate
