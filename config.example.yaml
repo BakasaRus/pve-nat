@@ -1,6 +1,8 @@
 network:
   # PVE external IP address
   external_ip: '12.34.56.78'
+  # PVE internal network
+  internal_network: '10.0.0.0/24'
   # LAN interface with CTs and VMs
   internal_interface: vmbr0
   # WAN interface
@@ -10,8 +12,12 @@ network:
 # All ports on external IP will be opened automatically
 rules:
   10.0.0.101:
-    22101: 22
+    tcp:
+      22101: 22
+    udp:
+      30300: 30300
 
   10.0.0.102:
-    22102: 22
-    5432: 5432
+    tcp:
+      22102: 22
+      5432: 5432
